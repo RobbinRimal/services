@@ -20,6 +20,13 @@ public class MultiplicationServiceImpl implements MultiplicationService {
                 generateRandomFactor();
         return new Multiplication(factorA,factorB);
     }
+
+
+    @Override
+    public boolean checkAttempt(MultiplicationResultAttempt resultAttempt) {
+       return resultAttempt.getMultiplication().getResult() == resultAttempt.getResultAttempt();
+
+    }
 }
 
 

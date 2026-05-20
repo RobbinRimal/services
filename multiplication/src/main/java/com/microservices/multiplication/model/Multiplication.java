@@ -1,19 +1,26 @@
 package com.microservices.multiplication.model;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
 @Getter
 @ToString
-public class Multiplication {
+@EqualsAndHashCode
+public final class Multiplication {
 
-    int factorA;
-    int factorB;
-    int result;
+    private final int factorA;
+    private final int factorB;
+    private final int result;
+
+    public Multiplication() {
+        this(0, 0);
+    }
 
     public Multiplication(int factorA, int factorB) {
         this.factorA = factorA;
         this.factorB = factorB;
-        this.result= factorA * factorB;
+        this.result = factorA * factorB;
     }
 }
