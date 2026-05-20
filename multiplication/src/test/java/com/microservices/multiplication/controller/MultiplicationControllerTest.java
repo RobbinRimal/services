@@ -4,6 +4,7 @@ import com.microservices.multiplication.model.Multiplication;
 import com.microservices.multiplication.model.MultiplicationServiceImpl;
 import lombok.AllArgsConstructor;
 import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,12 +29,17 @@ class MultiplicationControllerTest {
     MultiplicationServiceImpl multiplicationService;
     @Autowired
     MockMvc mockMvc;
+
+
+
+
     private JacksonTester<Multiplication> json;
 
-    @Before
+    @BeforeEach
     public void setup() {
         JsonMapper jsonMapper = new JsonMapper();
         JacksonTester.initFields(this, jsonMapper);
+
     }
 
 
@@ -60,7 +66,7 @@ class MultiplicationControllerTest {
          */
 
         assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
-       // assertThat(response.getContentAsString()).isEqualTo(json.write(new Multiplication(20,20)).getJson());
+        assertThat(response.getContentAsString()).isEqualTo(json.write(new Multiplication(20,20)).getJson());
 
     }
 }
