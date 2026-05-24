@@ -56,7 +56,7 @@ class MultiplicationControllerTest {
         * when
         */
         var response = mockMvc.perform(
-                get("/message/random")
+                get("/multiplications/random")
                         .accept(MediaType.APPLICATION_JSON)
         ).andReturn().getResponse();
 

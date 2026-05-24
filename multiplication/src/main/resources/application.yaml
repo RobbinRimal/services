@@ -1,3 +1,17 @@
 spring:
   application:
     name: multiplication
+  h2:
+    console:
+      enable: true
+  jpa:
+    hibernate:
+         ddl-auto: update
+    show_sql: true
+  datasource:
+        url: jdbc:h2:file:~/social-multiplication;DB_CLOSE_ON_EXIT=FALSE
+
+
+
+
+
